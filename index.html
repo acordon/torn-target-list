@@ -2,137 +2,156 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Target List</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="page-shell">
+<div class="app">
 
-        <header class="topbar">
+    <header class="topbar">
+        <div class="brand">
+            <span class="brand-main">TARGET</span>
+            <span class="brand-sub">LIST</span>
+        </div>
 
-            <div class="brand">
-                <span class="brand-main">TARGET</span>
-                <span class="brand-sub">LIST</span>
-            </div>
+        <div class="topbar-right">
+            <span class="target-count" id="contador">0 targets</span>
+            <button id="btnAbrirModal" class="add-button">+ ADD TARGET</button>
+        </div>
+    </header>
 
-            <div class="topbar-status">
-                CUSTOM TARGET MANAGER
-            </div>
+    <main>
 
-        </header>
+        <section class="toolbar">
 
-
-        <main class="content">
-
-            <section class="panel">
-
-                <div class="panel-header">
-
-                    <span>
-                        Add Target
-                    </span>
-
-                </div>
-
-                <div class="panel-body">
-
-                    <div class="form-grid">
-
-                        <div class="field">
-
-                            <label for="nome">
-                                Target Name
-                            </label>
-
-                            <input
-                                type="text"
-                                id="nome"
-                                placeholder="Ex: Player 123456"
-                                autocomplete="off"
-                            >
-
-                        </div>
-
-
-                        <div class="field field-link">
-
-                            <label for="link">
-                                TORN Profile Link
-                            </label>
-
-                            <input
-                                type="url"
-                                id="link"
-                                placeholder="https://www.torn.com/profiles.php?XID=..."
-                                autocomplete="off"
-                            >
-
-                        </div>
-
-
-                        <div class="field field-button">
-
-                            <label>
-                                &nbsp;
-                            </label>
-
-                            <button
-                                id="btnAdicionar"
-                                class="btn btn-primary"
-                            >
-                                + ADD TARGET
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <section class="panel target-panel">
-
-                <div class="panel-header">
-
-                    <span>
-                        My Targets
-                    </span>
-
-                    <span
-                        id="contador"
-                        class="counter"
-                    >
-                        0 targets
-                    </span>
-
-                </div>
-
-
-                <div
-                    id="lista"
-                    class="target-list"
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="busca"
+                    placeholder="Search targets list"
+                    autocomplete="off"
                 >
-                </div>
+            </div>
 
-            </section>
+            <div class="filters">
 
-        </main>
+                <label class="filter all active">
+                    <input type="radio" name="statusFilter" value="all" checked>
+                    <span class="radio"></span>
+                    <span>All</span>
+                </label>
+
+                <label class="filter okay">
+                    <input type="radio" name="statusFilter" value="Okay">
+                    <span class="radio"></span>
+                    <span>Okay</span>
+                </label>
+
+                <label class="filter traveling">
+                    <input type="radio" name="statusFilter" value="Traveling">
+                    <span class="radio"></span>
+                    <span>Traveling</span>
+                </label>
+
+                <label class="filter jail">
+                    <input type="radio" name="statusFilter" value="Jail">
+                    <span class="radio"></span>
+                    <span>Jail</span>
+                </label>
+
+                <label class="filter hospital">
+                    <input type="radio" name="statusFilter" value="Hospital">
+                    <span class="radio"></span>
+                    <span>Hospital</span>
+                </label>
+
+                <label class="filter federal">
+                    <input type="radio" name="statusFilter" value="Federal">
+                    <span class="radio"></span>
+                    <span>Federal</span>
+                </label>
+
+            </div>
+
+            <button id="btnBuscar" class="search-button">SEARCH</button>
+
+        </section>
+
+
+        <section class="table-wrapper">
+
+            <div class="table-head">
+                <div class="col-name">Name</div>
+                <div class="col-level">Level</div>
+                <div class="col-description">Description</div>
+                <div class="col-status">Status</div>
+                <div class="col-actions"></div>
+            </div>
+
+            <div id="lista" class="target-list"></div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ADD TARGET MODAL -->
+
+<div id="modal" class="modal hidden">
+
+    <div class="modal-backdrop"></div>
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+            <span>Add Target</span>
+            <button id="btnFecharModal" class="modal-close">×</button>
+        </div>
+
+        <div class="modal-body">
+
+            <label for="nome">Target Name</label>
+            <input
+                type="text"
+                id="nome"
+                placeholder="Ex: Player 123456"
+                autocomplete="off"
+            >
+
+            <label for="link">TORN Profile Link</label>
+            <input
+                type="url"
+                id="link"
+                placeholder="https://www.torn.com/profiles.php?XID=..."
+                autocomplete="off"
+            >
+
+            <label for="descricao">Description</label>
+            <input
+                type="text"
+                id="descricao"
+                placeholder="Optional note"
+                autocomplete="off"
+            >
+
+            <div class="modal-actions">
+                <button id="btnCancelar" class="button-secondary">CANCEL</button>
+                <button id="btnAdicionar" class="button-primary">ADD TARGET</button>
+            </div>
+
+        </div>
 
     </div>
 
+</div>
 
-    <script src="app.js"></script>
+
+<script src="app.js"></script>
 
 </body>
 </html>
