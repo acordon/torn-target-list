@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Lista de Alvos</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="page-shell">
+
+        <header class="topbar">
+
+            <div class="brand">
+                <span class="brand-main">LISTA</span>
+                <span class="brand-sub">DE ALVOS</span>
+            </div>
+
+            <div class="topbar-status">
+                GERENCIADOR DE ALVOS PERSONALIZADOS
+            </div>
+
+        </header>
+
+
+        <main class="content">
+
+            <section class="panel">
+
+                <div class="panel-header">
+
+                    <span>
+                        Adicionar Alvo
+                    </span>
+
+                </div>
+
+                <div class="panel-body">
+
+                    <div class="form-grid">
+
+                        <div class="field">
+
+                            <label for="nome">
+                                Nome do alvo
+                            </label>
+
+                            <input
+                                type="text"
+                                id="nome"
+                                placeholder="Ex: Jogador 123456"
+                                autocomplete="off"
+                            >
+
+                        </div>
+
+
+                        <div class="field field-link">
+
+                            <label for="link">
+                                Link do perfil no Torn
+                            </label>
+
+                            <input
+                                type="url"
+                                id="link"
+                                placeholder="https://www.torn.com/profiles.php?XID=..."
+                                autocomplete="off"
+                            >
+
+                        </div>
+
+
+                        <div class="field field-button">
+
+                            <label>
+                                &nbsp;
+                            </label>
+
+                            <button
+                                id="btnAdicionar"
+                                class="btn btn-primary"
+                            >
+                                + ADICIONAR ALVO
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section class="panel target-panel">
+
+                <div class="panel-header">
+
+                    <span>
+                        Meus Alvos
+                    </span>
+
+                    <span
+                        id="contador"
+                        class="counter"
+                    >
+                        0 alvos
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="lista"
+                    class="target-list"
+                >
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>
