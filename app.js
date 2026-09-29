@@ -27,7 +27,7 @@ function adicionarAlvo() {
 
     if (!link) {
 
-        alert("Informe o link do alvo.");
+        alert("Please enter the target profile link.");
         return;
 
     }
@@ -36,7 +36,7 @@ function adicionarAlvo() {
 
         id: crypto.randomUUID(),
 
-        nome: nome || `Alvo ${alvos.length + 1}`,
+        nome: nome || `Target ${alvos.length + 1}`,
 
         link: link
 
@@ -96,13 +96,13 @@ function renderizar() {
     lista.innerHTML = "";
 
     contador.textContent =
-        `${alvos.length} ${alvos.length === 1 ? "alvo" : "alvos"}`;
+        `${alvos.length} ${alvos.length === 1 ? "target" : "targets"}`;
 
     if (alvos.length === 0) {
 
         lista.innerHTML = `
             <p style="color:#9ca3af">
-                Nenhum alvo salvo ainda.
+                No targets saved yet.
             </p>
         `;
 
@@ -135,14 +135,14 @@ function renderizar() {
                     class="abrir"
                     onclick="abrirAlvo('${escaparAtributo(alvo.link)}')"
                 >
-                    Abrir
+                    Open
                 </button>
 
                 <button
                     class="excluir"
                     onclick="excluirAlvo('${alvo.id}')"
                 >
-                    Excluir
+                    Delete
                 </button>
 
             </div>
